@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace CodingWiki_Model.Models
 {
-    public class Author
+    public class Fluent_Author
     {
-        [Key]
+        //[Key]
         public int Author_Id { get; set; }
-        [Required]
-        [MaxLength(50)]
+        //[Required]
+        //[MaxLength(50)]
         public string FirstName { get; set; }
-        [Required]
+        //[Required]
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Location { get; set; }
-        [NotMapped]
+        //[NotMapped]
         public string FullName
         {
             get
@@ -29,6 +29,11 @@ namespace CodingWiki_Model.Models
         }
 
         //relations
-        public List<BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many
+
+
+        //public List<Fluent_Book> Books { get; set; } //navigation prop Many-to-Many for Skip
+
+
+        public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many for Manual
     }
 }

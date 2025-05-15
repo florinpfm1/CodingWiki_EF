@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace CodingWiki_Model.Models
 {
-    public class Publisher
+    public class Fluent_Publisher
     {
-        [Key]
+        //[Key]
         public int Publisher_Id { get; set; }
-        [Required]
+        //[Required]
         public string Name { get; set; }
         public string Location { get; set; }
 
         //relations
-        public List<Book> Books { get; set; } //navigation prop 1-to-Many
+        public List<Fluent_Book> Books { get; set; } //navigation prop 1-to-Many
                                               //from parent Publisher class we can extract all its children Books using this navigation prop
     }
 }

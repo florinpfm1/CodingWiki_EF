@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable> <!--this when false or is deleted will make the required props in model class have table columns that accept null values also-->
+    <!--<Nullable>enable</Nullable>--> <!--this when false or is deleted will make the required props in model class have table columns that accept null values also-->
   </PropertyGroup>
 
   <ItemGroup>
