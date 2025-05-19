@@ -1,3 +1,6 @@
+using CodingWiki_DataAccess.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CodingWiki_Web
 {
     public class Program
@@ -8,7 +11,12 @@ namespace CodingWiki_Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            //We registered the DbContext on "ApplicationDbContext" in the DI container, we pass the options where we configure the connection string
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                //builder.Configuration.GetConnectionString is a helper method that looks for connection string in appsettings.json->ConnectionStrings key
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

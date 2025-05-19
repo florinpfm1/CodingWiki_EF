@@ -1,6 +1,7 @@
 ﻿using CodingWiki_DataAccess.FluentConfig;
 using CodingWiki_Model.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +34,25 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Fluent_BookAuthorMap> Fluent_BookAuthorMaps { get; set; }
 
 
+        //CTOR - the DbContext builder options with the connection string will be passed from the Startup.cs file through CTOR here
+        //options we need to pass to base Constructor
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
+
+
+
+        //here we override the DbContext config and we impose out custom config from where to take the connection string for db
+        //is not needed since we registered DbContext in Program.cs file
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=ACERFLORIN\\SQL2022SIIT;Database=CodingWikiData;TrustServerCertificate=True;Trusted_Connection=True");
+            optionsBuilder
+                .UseSqlServer("Server=ACERFLORIN\\SQL2022SIIT;Database=CodingWikiData;TrustServerCertificate=True;Trusted_Connection=True")
+                .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information); //this will log to Console all queries/commands that EF Core is doing towards SQL Server db
         }
+        */
 
         //
         protected override void OnModelCreating(ModelBuilder modelBuilder)
