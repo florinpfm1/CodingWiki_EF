@@ -34,6 +34,11 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Fluent_BookAuthorMap> Fluent_BookAuthorMaps { get; set; }
 
 
+        public DbSet<MainBookDetails> MainBookDetails { get; set; }
+
+
+
+
         //CTOR - the DbContext builder options with the connection string will be passed from the Startup.cs file through CTOR here
         //options we need to pass to base Constructor
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -104,6 +109,12 @@ namespace CodingWiki_DataAccess.Data
                     new Publisher { Publisher_Id = 3, Name = "Pub 3 Ben", Location = "Hawaii" }
                 );
             //---seeding table Publisher
+
+
+            modelBuilder.Entity<MainBookDetails>()
+                .HasNoKey()  //this tells EF that it will have no Primary Key
+                             //also this makes that this entity will not be tracked by EF Core, all we retrieve from this View will be read-only
+                .ToView("GetMainBookDetails"); //this tells EF that we don't want to create a table in db for this entity, but only to have a view
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CodingWiki_Model.Models
 
 
         //relations
-        public Book Book { get; set; } //navigation prop Many-to-Many
-        public Author Author { get; set; } //navigation prop Many-to-Many
+        public virtual Book Book { get; set; } //navigation prop Many-to-Many
+        public virtual Author Author { get; set; } //navigation prop Many-to-Many
     }
 }

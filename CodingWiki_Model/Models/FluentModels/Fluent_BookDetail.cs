@@ -20,7 +20,7 @@ namespace CodingWiki_Model.Models
         //relations
         //[ForeignKey("Book")]
         public int Book_Id { get; set; } //foreign key
-        public Fluent_Book Book { get; set; } //navigation prop 1-to-1
+        public virtual Fluent_Book Book { get; set; } //navigation prop 1-to-1
                                        //from child BookDetail class we can extract its only parent Book using this navigation prop
     }
 }

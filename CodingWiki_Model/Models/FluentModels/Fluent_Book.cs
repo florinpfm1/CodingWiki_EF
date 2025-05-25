@@ -21,18 +21,18 @@ namespace CodingWiki_Model.Models
         public string PriceRange { get; set; }
 
         //relations
-        public Fluent_BookDetail BookDetail { get; set; } //navigation prop 1-to-1
+        public virtual Fluent_BookDetail BookDetail { get; set; } //navigation prop 1-to-1
                                                    //from parent Book class we can extract its only child BookDetail using this navigation prop
 
         //[ForeignKey("Publisher")]
         public int Publisher_Id { get; set; } //foreign key
-        public Fluent_Publisher Publisher { get; set; } //navigation prop 1-to-Many
+        public virtual Fluent_Publisher Publisher { get; set; } //navigation prop 1-to-Many
                                                         //from child Book we can extract its only parent Publisher using this navigation prop
 
         //public List<Fluent_Author> Authors { get; set; } //navigation prop Many-to-Many for Skip
 
 
-        public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many with Manual
+        public virtual List<Fluent_BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many with Manual
 
     }
 }

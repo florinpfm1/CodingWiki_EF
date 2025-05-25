@@ -14,8 +14,11 @@ namespace CodingWiki_Web
             //We registered the DbContext on "ApplicationDbContext" in the DI container, we pass the options where we configure the connection string
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
+                //this makes the DbContext by default in all aplication to not track the entities, which is useful for read-only retrieve operations
+                //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                
                 //builder.Configuration.GetConnectionString is a helper method that looks for connection string in appsettings.json->ConnectionStrings key
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             var app = builder.Build();
 

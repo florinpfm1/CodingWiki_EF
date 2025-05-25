@@ -29,6 +29,6 @@ namespace CodingWiki_Model.Models
         }
 
         //relations
-        public List<BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many
+        public virtual List<BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many
     }
 }

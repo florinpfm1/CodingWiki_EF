@@ -22,15 +22,15 @@ namespace CodingWiki_Model.Models
 
         //relations
         
-        public BookDetail BookDetail { get; set; } //navigation prop 1-to-1
+        public virtual BookDetail BookDetail { get; set; } //navigation prop 1-to-1
                                                    //from parent Book class we can extract its only child BookDetail using this navigation prop
 
         [ForeignKey("Publisher")]
         public int Publisher_Id { get; set; } //foreign key
-        public Publisher Publisher { get; set; } //navigation prop 1-to-Many
+        public virtual Publisher Publisher { get; set; } //navigation prop 1-to-Many
                                                  //from child Book we can extract its only parent Publisher using this navigation prop
 
-        public List<BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many
+        public virtual List<BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many
                                                  
     }
 }

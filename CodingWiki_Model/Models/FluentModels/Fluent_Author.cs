@@ -34,6 +34,6 @@ namespace CodingWiki_Model.Models
         //public List<Fluent_Book> Books { get; set; } //navigation prop Many-to-Many for Skip
 
 
-        public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many for Manual
+        public virtual List<Fluent_BookAuthorMap> BookAuthorMap { get; set; } //navigation prop Many-to-Many for Manual
     }
 }

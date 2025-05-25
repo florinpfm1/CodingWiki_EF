@@ -16,7 +16,7 @@ namespace CodingWiki_Model.Models
         public string Location { get; set; }
 
         //relations
-        public List<Book> Books { get; set; } //navigation prop 1-to-Many
+        public virtual List<Book> Books { get; set; } //navigation prop 1-to-Many
                                               //from parent Publisher class we can extract all its children Books using this navigation prop
     }
 }

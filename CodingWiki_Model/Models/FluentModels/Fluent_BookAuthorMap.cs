@@ -20,7 +20,7 @@ namespace CodingWiki_Model.Models
 
 
         //relations
-        public Fluent_Book Book { get; set; } //navigation prop Many-to-Many for Manuaal
-        public Fluent_Author Author { get; set; } //navigation prop Many-to-Many for Manual
+        public virtual Fluent_Book Book { get; set; } //navigation prop Many-to-Many for Manuaal
+        public virtual Fluent_Author Author { get; set; } //navigation prop Many-to-Many for Manual
     }
 }
